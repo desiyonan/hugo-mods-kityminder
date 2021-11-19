@@ -1,0 +1,6 @@
+{{- $gs := $.Page.Scratch  -}}
+{{- $mmd := ($gs.Get "mmd" | default 0) -}}
+{{- $gs.Set "mmd" (add $mmd 1) -}}
+<div id="{{ .Get 0 }}" class="mindmap mindmap-md">
+    {{- .Inner | markdownify -}}
+</div>

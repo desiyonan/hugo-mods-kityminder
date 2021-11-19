@@ -1,0 +1,20 @@
+{{- /* Head custom content area start */ -}}
+{{- /*     Insert any custom code (web-analytics, resources, etc.) - it will appear in the <head></head> section of every page. */ -}}
+{{- /*     Can be overwritten by partial with the same name in the global layouts. */ -}}
+{{- /* Head custom content area end */ -}}
+
+{{- $gs := $.Page.Scratch  -}}
+{{- $mmd := ($gs.Get "mmd" | default 0) -}}
+{{- if gt $mmd 0 -}}
+{{ $jq := resources.Get "js/jquery-3.6.0.min.js" }}
+{{ $kt1 := resources.Get "js/kity.min.js" }}
+{{ $kt2 := resources.Get "js/kityminder.core.min.js" }}
+{{ $kt3 := resources.Get "js/mindmap.js" }}
+<script src="{{ $jq.Permalink }}"></script>
+<script src="{{ $kt1.Permalink }}"></script>
+<script src="{{ $kt2.Permalink }}"></script>
+<script src="{{ $kt3.Permalink }}"></script>
+
+{{ $kt5 := resources.Get "css/mindmap.css" }}
+<link href="{{ $kt5.Permalink }}" rel="stylesheet">
+{{- end -}}
